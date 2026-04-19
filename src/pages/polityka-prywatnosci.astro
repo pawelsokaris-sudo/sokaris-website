@@ -13,31 +13,60 @@ import Base from '../layouts/Base.astro';
             </div>
 
             <div class="anim anim-d1" style="color:var(--text-dim); font-size:0.9rem; line-height:1.8;">
-                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">1. Administrator danych</h2>
-                <p>Administratorem danych osobowych jest Sokaris Oprogramowanie Paweł Łuczak, ul. Błękitna 3, 46-300 Olesno, NIP: 576-105-16-34.</p>
 
-                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">2. Zakres danych</h2>
-                <p>Zbieramy wyłącznie dane niezbędne do realizacji usług: NIP firmy, adres e-mail kontaktowy, numer telefonu (opcjonalnie), informacje o licencjach.</p>
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">1. Administrator danych</h2>
+                <p>Administratorem Pani/Pana danych osobowych jest <strong>Sokaris Oprogramowanie Paweł Łuczak</strong>, ul. Błękitna 3, 46-300 Olesno, NIP: 576-105-16-34 (dalej: „Administrator").</p>
+
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">2. Zakres zbieranych danych</h2>
+                <p>Zbieramy wyłącznie dane niezbędne do realizacji usług: NIP firmy, adres e-mail kontaktowy, numer telefonu (opcjonalnie), informacje o licencjach, a także — w przypadku korzystania z formularza AI asystenta na stronie <code>sokaris.pl/pomoc</code> — treść zadanego pytania oraz wersja użytkowanego programu.</p>
 
                 <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">3. Cel przetwarzania</h2>
-                <p>Dane przetwarzamy w celu: obsługi licencji i oprogramowania, świadczenia usług serwisowych, kontaktu z klientami, wystawiania dokumentów księgowych.</p>
+                <p>Dane przetwarzamy w celu: obsługi licencji i oprogramowania, świadczenia usług serwisowych, kontaktu z klientami, wystawiania dokumentów księgowych, a także w celu udzielania automatycznych odpowiedzi na zapytania techniczne (AI asystent) i ich weryfikacji przez obsługę klienta.</p>
 
                 <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">4. Podstawa prawna</h2>
-                <p>Przetwarzanie odbywa się na podstawie art. 6 ust. 1 lit. b) RODO (wykonanie umowy), art. 6 ust. 1 lit. c) RODO (obowiązek prawny), oraz art. 6 ust. 1 lit. f) RODO (prawnie uzasadniony interes administratora).</p>
+                <p>Przetwarzanie odbywa się na podstawie art. 6 ust. 1 lit. b) RODO (wykonanie umowy), art. 6 ust. 1 lit. c) RODO (obowiązek prawny) oraz art. 6 ust. 1 lit. f) RODO (prawnie uzasadniony interes administratora — obsługa klienta, zapobieganie nadużyciom, zapewnienie bezpieczeństwa i rozwoju usług).</p>
 
-                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">5. Prawa osób</h2>
-                <p>Mają Państwo prawo do: dostępu do swoich danych, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, wniesienia sprzeciwu wobec przetwarzania, a także wniesienia skargi do Prezesa UODO.</p>
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">5. Odbiorcy danych</h2>
+                <p>Dane mogą być przekazywane następującym kategoriom odbiorców, wyłącznie w zakresie niezbędnym do realizacji celów wskazanych w punkcie 3:</p>
+                <ul style="margin:0.5rem 0 0 1.5rem; padding:0;">
+                    <li><strong>Dostawca infrastruktury hostingowej</strong> — w celu technicznego utrzymania serwisów.</li>
+                    <li><strong>Anthropic PBC</strong> (USA) — dostawca modelu językowego wykorzystywanego przez AI asystenta. Przekazywana jest wyłącznie treść zapytania oraz opcjonalna wersja programu; dane identyfikujące firmę (NIP) nie są przekazywane do modelu.</li>
+                    <li><strong>Dostawca usług poczty elektronicznej</strong> — w celu wysyłki wiadomości transakcyjnych i serwisowych.</li>
+                    <li><strong>Organy administracji publicznej</strong> — w przypadku żądania opartego na przepisach prawa.</li>
+                    <li><strong>Zewnętrzni dostawcy oprogramowania i usług rozliczeniowych</strong> — wyłącznie w zakresie niezbędnym do wystawiania dokumentów księgowych.</li>
+                </ul>
 
-                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">6. Okres przechowywania</h2>
-                <p>Dane przechowujemy przez okres trwania umowy licencyjnej oraz przez okres wymagany przepisami prawa podatkowego (5 lat od końca roku kalendarzowego, w którym upłynął termin płatności podatku).</p>
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">6. Transfer danych poza Europejski Obszar Gospodarczy</h2>
+                <p>Część danych (wyłącznie treść zapytań zadawanych AI asystentowi) może być przetwarzana poza Europejskim Obszarem Gospodarczym (USA — Anthropic PBC). Transfer odbywa się na podstawie <strong>standardowych klauzul umownych</strong> zatwierdzonych przez Komisję Europejską, zgodnie z art. 46 ust. 2 lit. c) RODO. Zapewniamy, że dane nie zawierają identyfikatorów firmy (NIP) ani adresu e-mail.</p>
 
-                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">7. Analityka</h2>
-                <p>Korzystamy z narzędzia Umami do anonimowej analizy ruchu na stronie. Umami nie używa plików cookie ani nie zbiera danych osobowych. Serwer analityczny jest hostowany na naszej infrastrukturze w UE.</p>
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">7. Decyzje automatyczne i profilowanie</h2>
+                <p>Korzystamy z automatycznej analizy zapytań klientów („AI asystent" dostępny na <code>sokaris.pl/pomoc</code> oraz w Biurze Obsługi Klienta), która klasyfikuje zapytanie (np. „błąd programu", „pytanie jak to zrobić") i proponuje odpowiedź w oparciu o historię zmian oraz bazę wiedzy. Decyzje podejmowane automatycznie mają charakter <strong>rekomendacji</strong>, nie wywołują wobec Państwa skutków prawnych i nie wpływają w sposób istotny na Państwa prawa.</p>
+                <p style="margin-top:0.5rem;">W każdej chwili mają Państwo prawo żądać interwencji pracownika obsługi klienta — wystarczy kliknąć przycisk „Zgłoś do BOK" pod odpowiedzią AI lub zadzwonić na infolinię <strong>22 38 956 38</strong>.</p>
 
-                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">8. Kontakt</h2>
-                <p>W sprawach związanych z ochroną danych osobowych prosimy o kontakt: <a href="mailto:biuro@sokaris.pl">biuro@sokaris.pl</a></p>
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">8. Prawa osób, których dane dotyczą</h2>
+                <p>Mają Państwo prawo do: dostępu do swoich danych, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, wniesienia sprzeciwu wobec przetwarzania, niepodlegania decyzjom opartym wyłącznie na zautomatyzowanym przetwarzaniu (art. 22 RODO), a także wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (uodo.gov.pl).</p>
 
-                <p style="margin-top:3rem; font-size:0.78rem; color:rgba(139,138,160,0.5);">Ostatnia aktualizacja: kwiecień 2026</p>
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">9. Okres przechowywania</h2>
+                <p>Dane przechowujemy przez okres trwania umowy licencyjnej oraz przez okres wymagany przepisami prawa podatkowego (5 lat od końca roku kalendarzowego, w którym upłynął termin płatności podatku). Zapisy zapytań do AI asystenta przechowujemy przez okres 90 dni w celach audytowych i poprawy jakości usługi, po czym są anonimizowane.</p>
+
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">10. Bezpieczeństwo danych</h2>
+                <p>Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony danych przed nieuprawnionym dostępem, modyfikacją, utratą lub zniszczeniem, w szczególności:</p>
+                <ul style="margin:0.5rem 0 0 1.5rem; padding:0;">
+                    <li>szyfrowanie połączeń (SSL/TLS) na wszystkich serwisach</li>
+                    <li>regularne kopie zapasowe danych</li>
+                    <li>dostęp do danych ograniczony wyłącznie do upoważnionych pracowników</li>
+                    <li>szyfrowanie haseł w bazach danych</li>
+                    <li>monitoring i rejestrację operacji na danych wrażliwych</li>
+                </ul>
+
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">11. Pliki cookie</h2>
+                <p>Strona <code>sokaris.pl</code> nie wykorzystuje plików cookie ani innych technologii śledzących. Narzędzie analityczne Umami, z którego korzystamy, nie używa plików cookie i nie zbiera danych osobowych — serwer analityczny hostowany jest w ramach naszej infrastruktury w UE.</p>
+                <p style="margin-top:0.5rem;">Serwisy powiązane (np. <code>bok.faktura-nt.pl</code>) mogą używać plików cookie sesyjnych niezbędnych do działania logowania. Stosowne informacje znajdą Państwo w politykach prywatności tych serwisów.</p>
+
+                <h2 style="font-size:1.1rem; font-weight:600; color:var(--text); margin:2rem 0 0.8rem;">12. Kontakt</h2>
+                <p>W sprawach związanych z ochroną danych osobowych prosimy o kontakt: <a href="mailto:biuro@sokaris.pl">biuro@sokaris.pl</a>, tel. <a href="tel:+48223895638">22 38 956 38</a>.</p>
+
+                <p style="margin-top:3rem; font-size:0.78rem; color:rgba(139,138,160,0.5);">Ostatnia aktualizacja: 21 kwietnia 2026</p>
             </div>
         </div>
     </section>
