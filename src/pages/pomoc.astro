@@ -1,0 +1,304 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+    title="Pomoc — SOKARIS"
+    description="Masz problem z programem albo pytanie jak coś zrobić? Nasz AI asystent sprawdzi czy znalezione są już rozwiązanie w historii zmian lub bazie wiedzy."
+>
+    <!-- ===== HERO ===== -->
+    <section style="padding-top:7rem; padding-bottom:2rem;">
+        <div class="wrap" style="max-width:760px; text-align:center;">
+            <div class="anim" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 1rem; border-radius:100px; background:var(--accent-light); font-size:0.75rem; font-weight:600; color:var(--accent); letter-spacing:0.04em; margin-bottom:1.5rem;">
+                <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent);"></span>
+                Pomoc · AI asystent
+            </div>
+            <h1 class="anim anim-d1" style="font-size:clamp(2rem, 4vw, 2.8rem); font-weight:800; line-height:1.1; color:var(--text-bright); margin-bottom:1.2rem;">
+                Z jakim tematem <span style="background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">przychodzisz</span>?
+            </h1>
+            <p class="anim anim-d2" style="font-size:1.05rem; color:var(--text-dim); max-width:580px; margin:0 auto 0.5rem; line-height:1.7;">
+                Opisz <strong style="color:var(--text);">problem z działaniem programu</strong> albo
+                <strong style="color:var(--text);">pytanie „jak to zrobić"</strong>.
+                Sprawdzimy w historii zmian oraz bazie wiedzy KSeF
+                i zaproponujemy gotowe rozwiązanie — w kilka sekund, bez zgłoszenia.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FORM ===== -->
+    <section style="padding-top:1rem; padding-bottom:3rem;">
+        <div class="wrap" style="max-width:720px;">
+            <div class="anim anim-d2" style="background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2rem; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+
+                <form id="aiForm" onsubmit="return submitPomoc(event)">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:0.8rem;">
+                        <input type="text" name="nip" placeholder="NIP (opcjonalnie)" maxlength="13" pattern="[0-9\- ]*" autocomplete="off"
+                               style="padding:0.75rem 0.9rem; border:1px solid var(--border); border-radius:8px; font:inherit; font-size:0.92rem; background:#fff;" />
+                        <input type="text" name="client_version" list="versionList" placeholder="Wersja (np. 5.16.4.1268)" maxlength="20" autocomplete="off"
+                               style="padding:0.75rem 0.9rem; border:1px solid var(--border); border-radius:8px; font:inherit; font-size:0.92rem; background:#fff;" />
+                        <datalist id="versionList"></datalist>
+                    </div>
+                    <select name="program" id="programSelect" style="width:100%; padding:0.75rem 0.9rem; border:1px solid var(--border); border-radius:8px; font:inherit; font-size:0.92rem; background:#fff; margin-bottom:0.8rem;">
+                        <option value="Faktura-NT">Faktura-NT</option>
+                        <option value="Sapio">Sapio</option>
+                    </select>
+                    <textarea name="problem_text" required minlength="5" maxlength="2000"
+                              placeholder="Opisz problem lub pytanie. Np. „wywala się przy zamykaniu" albo „jak wystawić fakturę nabywca odbiorca""
+                              style="width:100%; min-height:90px; padding:0.9rem; border:1px solid var(--border); border-radius:8px; font:inherit; font-size:0.92rem; background:#fff; resize:vertical; margin-bottom:1rem;"></textarea>
+                    <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%; padding:0.9rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        Sprawdź rozwiązanie
+                    </button>
+                </form>
+
+                <div id="resultContainer"></div>
+            </div>
+
+            <!-- Fallback — gdy AI nie pomoże -->
+            <div class="anim anim-d3" style="margin-top:2rem; text-align:center; padding:1.5rem; background:var(--bg-soft); border-radius:12px; border:1px solid var(--border);">
+                <div style="font-size:0.9rem; color:var(--text-dim); margin-bottom:0.8rem;">
+                    AI nie znalazł rozwiązania? Zgłoś sprawę szczegółowo:
+                </div>
+                <div style="display:flex; gap:0.6rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="btn btn-ghost">
+                        📋 Panel klienta BOK
+                    </a>
+                    <a href="tel:+48223895638" class="btn btn-ghost">
+                        📞 22 38 956 38
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Base>
+
+<style>
+    .ai-card {
+        margin-top:1.5rem;
+        padding:1.5rem;
+        border-radius:12px;
+        border:1px solid;
+        animation: fadeIn .3s ease-out;
+    }
+    .ai-card.resolved_likely { background:#f0fdf4; border-color:#bbf7d0; color:#14532d; }
+    .ai-card.howto_match     { background:#f5f3ff; border-color:#c4b5fd; color:#4c1d95; }
+    .ai-card.known_issue     { background:#fffbeb; border-color:#fde68a; color:#78350f; }
+    .ai-card.ambiguous       { background:#f3f4f6; border-color:#d1d5db; color:#374151; }
+    .ai-card.no_match        { background:#eff6ff; border-color:#bfdbfe; color:#1e3a8a; }
+    .ai-card.error, .ai-card.rate_limited, .ai-card.invalid_input { background:#fef2f2; border-color:#fecaca; color:#7f1d1d; }
+    .ai-card h3 { margin:0 0 0.6rem; font-size:1.05rem; font-weight:700; display:flex; align-items:center; gap:0.4rem; }
+    .ai-card .version-badge { display:inline-block; margin:0.4rem 0; padding:0.2rem 0.6rem; background:rgba(255,255,255,0.7); border-radius:4px; font-family:ui-monospace,Menlo,monospace; font-weight:700; font-size:0.85rem; }
+    .ai-card .article-match { margin:0.6rem 0; padding:0.75rem 0.9rem; background:rgba(255,255,255,0.7); border-radius:6px; border-left:3px solid currentColor; }
+    .ai-card .article-match-label { font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; opacity:0.8; margin-bottom:0.2rem; }
+    .ai-card .article-match-title { font-size:0.95rem; font-weight:600; }
+    .ai-card .actions { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.8rem; }
+    .ai-card .actions a, .ai-card .actions button {
+        padding:0.5rem 0.9rem; background:#fff; color:#1e1b2e;
+        border:1px solid rgba(0,0,0,.1); border-radius:8px;
+        text-decoration:none; font-size:0.82rem; font-weight:600; cursor:pointer;
+    }
+    .ai-card .actions a:hover { background:#f8fafc; }
+    .ai-card .verification {
+        margin-top:0.75rem; padding:0.65rem 0.8rem;
+        background:rgba(255,255,255,0.6); border-radius:6px;
+        border-left:3px solid currentColor;
+        font-size:0.82rem; display:flex; gap:0.5rem; align-items:flex-start;
+    }
+    .ai-card .disclaimer {
+        margin-top:0.75rem; padding-top:0.75rem;
+        border-top:1px solid rgba(0,0,0,.08);
+        font-size:0.75rem; opacity:0.8;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<script is:inline>
+(function() {
+    const API = 'https://assistant.faktura-nt.pl/api/public/ai-check-problem';
+    const VERSIONS_API = 'https://assistant.faktura-nt.pl/api/public/program-versions';
+
+    const DOWNLOAD_URLS = {
+        'Faktura-NT': 'https://www.faktura-nt.pl/pobierz-program/',
+        'Sapio':      'https://www.sapio.pl/',
+    };
+    const dlFor = (p) => DOWNLOAD_URLS[p] || 'https://sokaris.pl/';
+
+    const VERDICT_UI = {
+        resolved_likely_bugfix:  { emoji:'✅', title:'Ten błąd już naprawiliśmy' },
+        resolved_likely_feature: { emoji:'✨', title:'Tę funkcję już dodaliśmy' },
+        resolved_likely:         { emoji:'✅', title:'Wygląda na zrealizowane' },
+        howto_match:             { emoji:'📖', title:'Mamy instrukcję na ten temat' },
+        known_issue:             { emoji:'⏳', title:'Znany temat — pracujemy' },
+        ambiguous:               { emoji:'🤷', title:'Trudno jednoznacznie dopasować' },
+        no_match:                { emoji:'🆕', title:'Nie znaleźliśmy tego w historii zmian' },
+        error:                   { emoji:'⚠️', title:'Problem techniczny' },
+        rate_limited:            { emoji:'🚫', title:'Za dużo zapytań' },
+        invalid_input:           { emoji:'⚠',  title:'Popraw dane' },
+    };
+
+    function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
+            '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;',
+        }[c]));
+    }
+
+    function timeAgoPl(d) {
+        if (!d) return '';
+        const date = new Date(d);
+        if (isNaN(date.getTime())) return '';
+        const days = Math.floor((Date.now() - date.getTime()) / 86400000);
+        if (days < 0) return 'w przyszłości';
+        if (days === 0) return 'dzisiaj';
+        if (days === 1) return 'wczoraj';
+        if (days < 7)   return days + ' dni temu';
+        if (days < 14)  return 'tydzień temu';
+        if (days < 31)  return Math.floor(days/7) + ' tyg. temu';
+        if (days < 62)  return 'miesiąc temu';
+        if (days < 365) return Math.floor(days/30) + ' mies. temu';
+        const y = Math.floor(days/365);
+        return y === 1 ? 'rok temu' : y + ' lat temu';
+    }
+
+    async function loadVersions(program) {
+        const dl = document.getElementById('versionList');
+        if (!dl || !program) return;
+        dl.innerHTML = '';
+        try {
+            const r = await fetch(VERSIONS_API + '?program=' + encodeURIComponent(program));
+            if (!r.ok) return;
+            const releases = await r.json();
+            releases.sort((a,b) => String(b.released_at||'').localeCompare(String(a.released_at||'')));
+            dl.innerHTML = releases.map(r => {
+                const d = (r.released_at || '').slice(0,10);
+                const ago = timeAgoPl(d);
+                const label = d && ago ? `${d} · ${ago}` : (d || 'data nieznana');
+                return `<option value="${esc(r.version)}">${esc(label)}</option>`;
+            }).join('');
+        } catch (e) { /* silent */ }
+    }
+
+    let lastData = {};
+
+    window.submitPomoc = async function(ev) {
+        ev.preventDefault();
+        const form = ev.target;
+        const btn = document.getElementById('submitBtn');
+        const container = document.getElementById('resultContainer');
+        const origText = btn.innerHTML;
+
+        btn.disabled = true;
+        btn.innerHTML = '⌛ Analizuję...';
+        container.innerHTML = '';
+
+        const payload = {
+            nip: form.nip.value.trim(),
+            client_version: form.client_version.value.trim(),
+            problem_text: form.problem_text.value.trim(),
+            program: form.program.value,
+        };
+        lastData = payload;
+
+        try {
+            const r = await fetch(API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            const data = await r.json();
+            renderResult(data);
+        } catch (e) {
+            renderResult({
+                verdict: 'error',
+                client_message_pl: 'Nie udało się połączyć. Zadzwoń: 22 38 956 38.',
+                infolinia: '22 38 956 38',
+            });
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = origText;
+        }
+        return false;
+    };
+
+    function renderResult(data) {
+        const container = document.getElementById('resultContainer');
+        const v = data.verdict || 'error';
+
+        let uiKey = v;
+        if (v === 'resolved_likely' && data.matched_type) {
+            uiKey = 'resolved_likely_' + data.matched_type;
+        }
+        const ui = VERDICT_UI[uiKey] || VERDICT_UI[v] || VERDICT_UI.error;
+
+        let html = `<div class="ai-card ${esc(v)}" role="alert" aria-live="polite">`;
+        html += `<h3>${ui.emoji} ${esc(ui.title)}</h3>`;
+
+        if (data.matched_version) {
+            html += `<div class="version-badge">wersja ${esc(data.matched_version)}</div>`;
+        }
+
+        html += `<div style="font-size:0.92rem">${esc(data.client_message_pl || 'Brak odpowiedzi.')}</div>`;
+
+        if (v === 'howto_match' && data.matched_article_title) {
+            html += `<div class="article-match">
+                <div class="article-match-label">📖 Artykuł z bazy wiedzy:</div>
+                <div class="article-match-title">${esc(data.matched_article_title)}</div>
+            </div>`;
+        }
+
+        if (data.verification && data.verification.message) {
+            const vIcon = data.verification.will_follow_up ? '🔐' : 'ℹ️';
+            html += `<div class="verification"><span>${vIcon}</span><span>${esc(data.verification.message)}</span></div>`;
+        }
+
+        html += `<div class="actions">`;
+        if (v === 'resolved_likely' && data.matched_version) {
+            const prog = lastData.program || 'Faktura-NT';
+            html += `<a href="${esc(dlFor(prog))}" target="_blank" rel="noopener"><strong>📥 Pobierz ${esc(prog)}</strong></a>`;
+        }
+        if (v === 'howto_match' && data.matched_article_url) {
+            html += `<a href="${esc(data.matched_article_url)}" target="_blank" rel="noopener"><strong>📖 Otwórz artykuł</strong></a>`;
+        }
+        if (v === 'ambiguous' || v === 'no_match') {
+            // Zgłoszenie do BOK z pre-fill
+            const bokParams = new URLSearchParams();
+            if (lastData.nip) bokParams.set('nip', lastData.nip);
+            if (lastData.client_version) bokParams.set('wersja', lastData.client_version);
+            if (lastData.program) bokParams.set('program', lastData.program);
+            if (lastData.problem_text) {
+                const p = lastData.problem_text.slice(0, 500);
+                bokParams.set('tytul', p.slice(0, 80));
+                bokParams.set('opis', p);
+            }
+            if (v) bokParams.set('ai_verdict', v);
+            html += `<a href="https://bok.faktura-nt.pl/?${bokParams.toString()}" target="_blank" rel="noopener">📝 Zgłoś do BOK</a>`;
+        }
+        if (data.infolinia) {
+            html += `<a href="tel:${esc(data.infolinia).replace(/\s/g,'')}">📞 ${esc(data.infolinia)}</a>`;
+        }
+        html += `</div>`;
+
+        if (data.disclaimer) {
+            html += `<div class="disclaimer">${esc(data.disclaimer)}</div>`;
+        }
+        html += `</div>`;
+
+        container.innerHTML = html;
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Init — wczytaj wersje dla Faktura-NT domyślnie
+    document.addEventListener('DOMContentLoaded', () => {
+        const sel = document.getElementById('programSelect');
+        if (sel) {
+            loadVersions(sel.value);
+            sel.addEventListener('change', () => loadVersions(sel.value));
+        }
+    });
+    if (document.readyState !== 'loading') {
+        const sel = document.getElementById('programSelect');
+        if (sel) loadVersions(sel.value);
+    }
+})();
+</script>
