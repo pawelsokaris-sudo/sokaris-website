@@ -68,13 +68,9 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       width: var(--wrap); margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .logo {
-      font-size: 1.15rem; font-weight: 700; letter-spacing: 0.06em;
-      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .logo span { font-weight: 400; -webkit-text-fill-color: var(--text-dim); }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo img { height: 32px; width: auto; }
+    .logo span { font-size: 0.8rem; font-weight: 500; color: var(--text-dim); }
     .nav { display: flex; gap: 1.8rem; align-items: center; }
     .nav a {
       color: var(--text-dim); font-size: 0.85rem; font-weight: 500;
@@ -234,7 +230,7 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="logo">SOKARIS <span>· software</span></a>
+      <a href="/" class="logo"><img src="/images/sokaris-logo.png" alt="Sokaris" /></a>
       <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </button>
@@ -253,7 +249,7 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="logo" style="margin-bottom:0.6rem">SOKARIS</div>
+        <div class="logo" style="margin-bottom:0.6rem"><img src="/images/sokaris-logo.png" alt="Sokaris" style="height:28px;" /></div>
         <p>Polskie oprogramowanie biznesowe od 1996 roku. Fakturowanie, księgowość i platforma serwisowa dla firm w&nbsp;całej Polsce.</p>
       </div>
       <div class="footer-links">
