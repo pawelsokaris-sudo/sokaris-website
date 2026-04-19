@@ -12,7 +12,7 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#0a0a1a" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,16 +21,18 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #07070f;
-      --bg-card: rgba(255,255,255,0.03);
-      --bg-card-hover: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.08);
-      --border-hover: rgba(139,92,246,0.3);
-      --text: #e4e4ef;
-      --text-dim: #8b8ba0;
-      --text-bright: #ffffff;
-      --accent: #a78bfa;
-      --accent-bright: #c4b5fd;
+      --bg: #ffffff;
+      --bg-soft: #f8f9fc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f5f3ff;
+      --border: #e8e5f0;
+      --border-hover: rgba(124,58,237,0.3);
+      --text: #1e1b2e;
+      --text-dim: #6b6685;
+      --text-bright: #0f0d1a;
+      --accent: #7c3aed;
+      --accent-light: #ede9fe;
+      --accent-bright: #6d28d9;
       --gradient-start: #7c3aed;
       --gradient-end: #06b6d4;
       --section-gap: clamp(4rem, 8vw, 7rem);
@@ -48,26 +50,6 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       -webkit-font-smoothing: antialiased;
     }
 
-    /* === Ambient glow === */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -40%; left: -20%;
-      width: 80vw; height: 80vw;
-      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -30%; right: -10%;
-      width: 60vw; height: 60vw;
-      background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
     a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
     a:hover { color: var(--accent-bright); }
 
@@ -76,8 +58,8 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
     /* === Header === */
     .site-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1rem 0;
-      background: rgba(7,7,15,0.7);
+      padding: 0.8rem 0;
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(20px) saturate(1.6);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
@@ -87,12 +69,12 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       display: flex; align-items: center; justify-content: space-between;
     }
     .logo {
-      font-size: 1.15rem; font-weight: 700; letter-spacing: 0.08em;
+      font-size: 1.15rem; font-weight: 700; letter-spacing: 0.06em;
       background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .logo span { font-weight: 400; opacity: 0.5; -webkit-text-fill-color: var(--text-dim); }
+    .logo span { font-weight: 400; -webkit-text-fill-color: var(--text-dim); }
     .nav { display: flex; gap: 1.8rem; align-items: center; }
     .nav a {
       color: var(--text-dim); font-size: 0.85rem; font-weight: 500;
@@ -101,22 +83,21 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
     .nav a:hover { color: var(--text-bright); }
     .nav .nav-cta {
       padding: 0.45rem 1.1rem; border-radius: 8px;
-      background: rgba(167,139,250,0.12); color: var(--accent);
-      border: 1px solid rgba(167,139,250,0.2);
+      background: var(--accent); color: #fff;
       font-size: 0.82rem; font-weight: 600;
-      transition: all 0.25s;
+      transition: all 0.25s; border: none;
     }
     .nav .nav-cta:hover {
-      background: rgba(167,139,250,0.2);
-      border-color: rgba(167,139,250,0.4);
+      background: var(--accent-bright);
       transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(124,58,237,0.25);
+      color: #fff;
     }
 
-    /* Mobile nav */
     .nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 0.5rem; }
     @media (max-width: 768px) {
       .nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(7,7,15,0.95); backdrop-filter: blur(20px); padding: 1.5rem; gap: 1.2rem;
+        background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); padding: 1.5rem; gap: 1.2rem;
         border-bottom: 1px solid var(--border); }
       .nav.open { display: flex; }
       .nav-toggle { display: block; }
@@ -129,7 +110,7 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 0.8rem;
       padding: 0.3rem 0.8rem; border-radius: 100px;
-      background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.15);
+      background: var(--accent-light);
     }
     .section-title {
       font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700;
@@ -149,24 +130,19 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       position: relative; padding: 1.8rem; border-radius: 16px;
       background: var(--bg-card); border: 1px solid var(--border);
       transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
-      overflow: hidden;
-    }
-    .card::before {
-      content: ''; position: absolute; inset: 0; border-radius: 16px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, transparent 50%);
-      opacity: 0; transition: opacity 0.35s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
     .card:hover {
       border-color: var(--border-hover);
       background: var(--bg-card-hover);
       transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(124,58,237,0.08);
     }
-    .card:hover::before { opacity: 1; }
     .card-icon {
       width: 48px; height: 48px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem; margin-bottom: 1.2rem;
-      background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.15);
+      background: var(--accent-light);
     }
     .card h3 {
       font-size: 1.1rem; font-weight: 600; color: var(--text-bright);
@@ -179,6 +155,10 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       color: var(--accent); transition: gap 0.2s;
     }
     .card:hover .card-link { gap: 0.7rem; }
+    .card-img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 12px; margin-bottom: 1.2rem;
+    }
 
     /* === Buttons === */
     .btn {
@@ -189,27 +169,28 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--gradient-start), #9333ea);
-      color: #fff; box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+      color: #fff; box-shadow: 0 4px 16px rgba(124,58,237,0.25);
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(124,58,237,0.45);
+      box-shadow: 0 6px 24px rgba(124,58,237,0.35);
       color: #fff;
     }
     .btn-ghost {
-      background: rgba(255,255,255,0.04); color: var(--text);
+      background: var(--bg-soft); color: var(--text);
       border: 1px solid var(--border);
     }
     .btn-ghost:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.15);
-      color: var(--text-bright);
+      background: var(--accent-light);
+      border-color: rgba(124,58,237,0.2);
+      color: var(--accent-bright);
     }
 
     /* === Footer === */
     .site-footer {
       padding: 3rem 0 2rem;
       border-top: 1px solid var(--border);
+      background: var(--bg-soft);
       color: var(--text-dim); font-size: 0.8rem;
     }
     .footer-inner {
@@ -232,7 +213,7 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
       width: var(--wrap); margin: 2rem auto 0;
       padding-top: 1.5rem; border-top: 1px solid var(--border);
       display: flex; flex-wrap: wrap; justify-content: space-between;
-      font-size: 0.75rem; color: rgba(139,138,160,0.6);
+      font-size: 0.75rem; color: #a09cb3;
     }
 
     /* === Animations === */
@@ -245,15 +226,12 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
     .anim-d2 { animation-delay: 0.2s; }
     .anim-d3 { animation-delay: 0.3s; }
     .anim-d4 { animation-delay: 0.4s; }
-    .anim-d5 { animation-delay: 0.5s; }
 
-    /* Scroll-triggered via IntersectionObserver */
     .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <a href="/" class="logo">SOKARIS <span>· software</span></a>
@@ -272,12 +250,11 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
 
   <slot />
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo" style="margin-bottom:0.6rem">SOKARIS</div>
-        <p>Polskie oprogramowanie biznesowe od 1996 roku. Fakturowanie, księgowość i platforma serwisowa dla tysięcy firm w&nbsp;całej Polsce.</p>
+        <p>Polskie oprogramowanie biznesowe od 1996 roku. Fakturowanie, księgowość i platforma serwisowa dla firm w&nbsp;całej Polsce.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -312,10 +289,9 @@ const { title = 'SOKARIS — Polskie oprogramowanie biznesowe', description = 'F
   </footer>
 
   <script>
-    // Scroll reveal
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-    }, { threshold: 0.1,  rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>

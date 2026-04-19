@@ -4,59 +4,61 @@ import Base from '../layouts/Base.astro';
 
 <Base>
     <!-- ===== HERO ===== -->
-    <section style="padding-top:10rem; padding-bottom:5rem; position:relative; min-height:85vh; display:flex; align-items:center;">
-        <!-- Floating orbs -->
-        <div style="position:absolute; top:15%; right:10%; width:300px; height:300px; background:radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%); border-radius:50%; filter:blur(60px); pointer-events:none;" aria-hidden="true"></div>
-        <div style="position:absolute; bottom:10%; left:5%; width:200px; height:200px; background:radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%); border-radius:50%; filter:blur(40px); pointer-events:none;" aria-hidden="true"></div>
+    <section style="padding-top:7rem; padding-bottom:0; position:relative;">
+        <div class="wrap" style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; min-height:80vh;">
+            <div>
+                <div class="anim" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 1rem; border-radius:100px; background:var(--accent-light); font-size:0.75rem; font-weight:600; color:var(--accent); letter-spacing:0.04em; margin-bottom:1.5rem;">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); animation: pulse 2s infinite;"></span>
+                    Polskie oprogramowanie biznesowe · od 1996
+                </div>
 
-        <div class="wrap" style="position:relative; z-index:1;">
-            <div class="anim" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 1rem; border-radius:100px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.15); font-size:0.75rem; font-weight:600; color:var(--accent); letter-spacing:0.04em; margin-bottom:1.5rem;">
-                <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); animation: pulse 2s infinite;"></span>
-                Polskie oprogramowanie biznesowe · od 1996
+                <h1 class="anim anim-d1" style="font-size:clamp(2.2rem, 5vw, 3.6rem); font-weight:800; line-height:1.08; color:var(--text-bright); margin-bottom:1.2rem;">
+                    Fakturowanie,<br>księgowość,
+                    <span style="background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">rozwój</span>.
+                </h1>
+
+                <p class="anim anim-d2" style="font-size:1.05rem; color:var(--text-dim); max-width:460px; line-height:1.7; margin-bottom:2rem;">
+                    Tworzymy oprogramowanie dla polskich firm od prawie trzech dekad.
+                    Od prostej faktury po platformę event-sourced dla operacji przyszłości.
+                </p>
+
+                <div class="anim anim-d3" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                    <a href="#produkty" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                        Nasze rozwiązania
+                    </a>
+                    <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="btn btn-ghost">
+                        Jestem klientem — do BOK →
+                    </a>
+                </div>
+
+                <div class="anim anim-d4" style="display:flex; gap:2.5rem; margin-top:3rem; flex-wrap:wrap;">
+                    <div>
+                        <div style="font-size:1.6rem; font-weight:800; color:var(--text-bright);">od 1996</div>
+                        <div style="font-size:0.72rem; color:var(--text-dim); letter-spacing:0.05em; text-transform:uppercase;">Na polskim rynku</div>
+                    </div>
+                    <div style="width:1px; background:var(--border); align-self:stretch;"></div>
+                    <div>
+                        <div style="font-size:1.6rem; font-weight:800; color:var(--text-bright);">KSeF<span style="color:var(--accent);">✓</span></div>
+                        <div style="font-size:0.72rem; color:var(--text-dim); letter-spacing:0.05em; text-transform:uppercase;">Gotowy od dnia 1</div>
+                    </div>
+                </div>
             </div>
 
-            <h1 class="anim anim-d1" style="font-size:clamp(2.2rem, 6vw, 4.2rem); font-weight:800; line-height:1.08; color:var(--text-bright); max-width:700px; margin-bottom:1.2rem;">
-                Fakturowanie,<br>księgowość,
-                <span style="background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">rozwój</span>.
-            </h1>
-
-            <p class="anim anim-d2" style="font-size:1.1rem; color:var(--text-dim); max-width:520px; line-height:1.7; margin-bottom:2rem;">
-                Tworzymy oprogramowanie dla polskich firm od prawie trzech dekad.
-                Od prostej faktury po platformę event-sourced dla operacji przyszłości.
-            </p>
-
-            <div class="anim anim-d3" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-                <a href="#produkty" class="btn btn-primary">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-                    Nasze rozwiązania
-                </a>
-                <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="btn btn-ghost">
-                    Jestem klientem — do BOK →
-                </a>
-            </div>
-
-            <!-- Trust indicators -->
-            <div class="anim anim-d4" style="display:flex; gap:2.5rem; margin-top:3.5rem; flex-wrap:wrap;">
-                <div style="text-align:left;">
-                    <div style="font-size:1.8rem; font-weight:800; color:var(--text-bright);">od 1996</div>
-                    <div style="font-size:0.72rem; color:var(--text-dim); letter-spacing:0.05em; text-transform:uppercase;">Na polskim rynku</div>
-                </div>
-                <div style="width:1px; background:var(--border); align-self:stretch;"></div>
-                <div style="text-align:left;">
-                    <div style="font-size:1.8rem; font-weight:800; color:var(--text-bright);">KSeF<span style="color:var(--accent);">✓</span></div>
-                    <div style="font-size:0.72rem; color:var(--text-dim); letter-spacing:0.05em; text-transform:uppercase;">Gotowy od dnia 1</div>
-                </div>
+            <div class="anim anim-d3" style="position:relative;">
+                <img src="/images/hero.png" alt="Nowoczesne miejsce pracy" style="width:100%; border-radius:20px; box-shadow:0 20px 60px rgba(124,58,237,0.12);" />
+                <div style="position:absolute; inset:0; border-radius:20px; background:linear-gradient(135deg, rgba(124,58,237,0.05) 0%, transparent 60%);"></div>
             </div>
         </div>
     </section>
 
     <!-- ===== PRODUKTY ===== -->
-    <section id="produkty" style="padding-bottom:var(--section-gap);">
+    <section id="produkty" style="background:var(--bg-soft); border-top:1px solid var(--border);">
         <div class="wrap">
-            <div class="reveal">
+            <div class="reveal" style="text-align:center; margin-bottom:3rem;">
                 <span class="section-label">Produkty</span>
-                <h2 class="section-title">Sprawdzone rozwiązania dla&nbsp;firm</h2>
-                <p class="section-desc">
+                <h2 class="section-title" style="margin:0 auto;">Sprawdzone rozwiązania dla&nbsp;firm</h2>
+                <p class="section-desc" style="margin:0.6rem auto 0; text-align:center;">
                     Dwie dojrzałe aplikacje z tysiącami aktywnych użytkowników.
                     Wspierane, aktualizowane, w pełni gotowe na KSeF.
                 </p>
@@ -64,103 +66,100 @@ import Base from '../layouts/Base.astro';
 
             <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <a href="https://faktura-nt.pl" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
-                    </div>
+                    <img src="/images/faktura-nt.png" alt="Faktura-NT — program do fakturowania" class="card-img" />
                     <h3>Faktura-NT</h3>
-                    <p style="margin-bottom:0.3rem;">
+                    <p>
                         Program do fakturowania dla firm i biur rachunkowych.
                         Pełna obsługa <strong style="color:var(--text);">KSeF</strong>, JPK, import/eksport, praca wielostanowiskowa.
                     </p>
                     <ul style="list-style:none; margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:0.4rem;">
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">KSeF 2.0</li>
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">JPK</li>
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">Multi-firma</li>
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">LAN/WAN</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:var(--accent-light); font-size:0.7rem; color:var(--accent); font-weight:500;">KSeF 2.0</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:var(--accent-light); font-size:0.7rem; color:var(--accent); font-weight:500;">JPK</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:var(--accent-light); font-size:0.7rem; color:var(--accent); font-weight:500;">Multi-firma</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:var(--accent-light); font-size:0.7rem; color:var(--accent); font-weight:500;">LAN/WAN</li>
                     </ul>
                     <div class="card-link">faktura-nt.pl <span>→</span></div>
                 </a>
 
                 <a href="https://sapio.pl" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
-                    <div class="card-icon" style="background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.15);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
+                    <img src="/images/sapio.png" alt="Sapio — system ERP" class="card-img" />
                     <h3>Sapio</h3>
-                    <p style="margin-bottom:0.3rem;">
+                    <p>
                         System ERP do zarządzania sprzedażą, magazynem i dokumentacją.
                         Zaawansowana analityka, integracje API, skalowalny.
                     </p>
                     <ul style="list-style:none; margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:0.4rem;">
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">ERP</li>
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">Magazyn</li>
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">API</li>
-                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">Raporty</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.1); font-size:0.7rem; color:#0891b2; font-weight:500;">ERP</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.1); font-size:0.7rem; color:#0891b2; font-weight:500;">Magazyn</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.1); font-size:0.7rem; color:#0891b2; font-weight:500;">API</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.1); font-size:0.7rem; color:#0891b2; font-weight:500;">Raporty</li>
                     </ul>
-                    <div class="card-link" style="color:#06b6d4;">sapio.pl <span>→</span></div>
+                    <div class="card-link" style="color:#0891b2;">sapio.pl <span>→</span></div>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- ===== SERWIS ===== -->
-    <section id="serwis" style="border-top:1px solid var(--border);">
+    <section id="serwis">
         <div class="wrap">
-            <div class="reveal">
-                <span class="section-label" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.15); color:#10b981;">Serwis</span>
-                <h2 class="section-title">Wsparcie 24/7 z&nbsp;AI</h2>
-                <p class="section-desc">
-                    Biuro Obsługi Klienta z wbudowanym agentem AI.
-                    Diagnostyka, aktualizacje, zgłoszenia serwisowe — wszystko w&nbsp;jednym miejscu.
-                </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin-bottom:3rem;" class="reveal">
+                <div>
+                    <span class="section-label" style="background:rgba(16,185,129,0.1); color:#059669;">Serwis</span>
+                    <h2 class="section-title">Wsparcie z&nbsp;AI</h2>
+                    <p class="section-desc" style="margin-bottom:1.5rem;">
+                        Biuro Obsługi Klienta z wbudowanym agentem AI.
+                        Diagnostyka, aktualizacje, zgłoszenia serwisowe — wszystko w&nbsp;jednym miejscu.
+                    </p>
+                    <div style="padding:1.2rem 1.5rem; border-radius:12px; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.12); display:flex; align-items:center; gap:1rem;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        <div>
+                            <div style="font-weight:600; color:var(--text-bright); font-size:0.88rem;">Infolinia: 22 38 956 38</div>
+                            <div style="font-size:0.78rem; color:var(--text-dim);">Pon–Pt 8:00–16:00</div>
+                        </div>
+                    </div>
+                </div>
+                <img src="/images/support.png" alt="Wsparcie techniczne Sokaris" style="width:100%; border-radius:16px; box-shadow:0 12px 40px rgba(0,0,0,0.08);" />
             </div>
 
             <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
-                    <div class="card-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.15);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div class="card-icon" style="background:rgba(16,185,129,0.1);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3>Panel klienta BOK</h3>
                     <p>Logowanie po NIP-ie, historia licencji, statusy produktów, dokumenty do pobrania.</p>
-                    <div class="card-link" style="color:#10b981;">bok.faktura-nt.pl →</div>
+                    <div class="card-link" style="color:#059669;">bok.faktura-nt.pl →</div>
                 </a>
 
                 <a href="https://bok.faktura-nt.pl/aktualizacje" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
-                    <div class="card-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.15);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <div class="card-icon" style="background:rgba(16,185,129,0.1);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                     </div>
                     <h3>AI Agent diagnostyczny</h3>
                     <p>Automatyczna weryfikacja NIP, wersji programu i uprawnień. Odpowiedź w&nbsp;sekundach.</p>
-                    <div class="card-link" style="color:#10b981;">Sprawdź aktualizacje →</div>
+                    <div class="card-link" style="color:#059669;">Sprawdź aktualizacje →</div>
                 </a>
 
                 <a href="https://assistant.faktura-nt.pl/zglos" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
-                    <div class="card-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.15);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M7 7h.01M11 7h.01M15 7h.01M7 11h.01M11 11h.01M15 11h.01"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+                    <div class="card-icon" style="background:rgba(16,185,129,0.1);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                     </div>
                     <h3>Zgłoszenia online</h3>
                     <p>Formularz serwisowy ze śledzeniem statusu. Priorytety, załączniki, powiadomienia e-mail.</p>
-                    <div class="card-link" style="color:#10b981;">Zgłoś problem →</div>
+                    <div class="card-link" style="color:#059669;">Zgłoś problem →</div>
                 </a>
-            </div>
-
-            <!-- Phone support callout -->
-            <div class="reveal" style="margin-top:1.5rem; padding:1.5rem 2rem; border-radius:14px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.1); display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                <div>
-                    <div style="font-weight:600; color:var(--text-bright); font-size:0.9rem;">Infolinia: 22 38 956 38</div>
-                    <div style="font-size:0.8rem; color:var(--text-dim);">Pon–Pt 8:00–16:00 · Pomoc telefoniczna dla klientów z aktywną licencją</div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- ===== R&D ===== -->
-    <section id="rozwoj" style="border-top:1px solid var(--border);">
+    <section id="rozwoj" style="background:var(--bg-soft); border-top:1px solid var(--border);">
         <div class="wrap">
-            <div class="reveal">
-                <span class="section-label" style="background:rgba(251,146,60,0.08); border-color:rgba(251,146,60,0.15); color:#fb923c;">Badania i rozwój</span>
-                <h2 class="section-title">Budujemy przyszłość oprogramowania</h2>
-                <p class="section-desc">
+            <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+                <span class="section-label" style="background:rgba(251,146,60,0.1); color:#ea580c;">Badania i rozwój</span>
+                <h2 class="section-title" style="margin:0 auto;">Budujemy przyszłość oprogramowania</h2>
+                <p class="section-desc" style="margin:0.6rem auto 0; text-align:center;">
                     Inwestujemy w badania nad AI diagnostyką, weryfikowalnym event-sourcing
                     i nowymi narzędziami dla polskiego biznesu.
                 </p>
@@ -168,30 +167,30 @@ import Base from '../layouts/Base.astro';
 
             <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <a href="https://actproof.io" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
-                    <div class="card-icon" style="background:rgba(251,146,60,0.1); border-color:rgba(251,146,60,0.15);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <div class="card-icon" style="background:rgba(251,146,60,0.1);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
                     <h3>ActProof.io</h3>
                     <p>Platforma do diagnostyki AI i algorytmu RBA (Retrograde Balancing Algorithm).</p>
-                    <div class="card-link" style="color:#fb923c;">actproof.io →</div>
+                    <div class="card-link" style="color:#ea580c;">actproof.io →</div>
                 </a>
 
                 <div class="card reveal">
-                    <div class="card-icon" style="background:rgba(251,146,60,0.1); border-color:rgba(251,146,60,0.15);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+                    <div class="card-icon" style="background:rgba(251,146,60,0.1);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
                     </div>
                     <h3>ActProof-OS</h3>
                     <p>Event-sourced ERP z weryfikowalnym stanem. Zarządzanie procesami, kadrami i kontraktami.</p>
-                    <div style="margin-top:1rem; padding:0.2rem 0.6rem; display:inline-block; border-radius:6px; background:rgba(251,146,60,0.08); font-size:0.68rem; color:#fb923c; border:1px solid rgba(251,146,60,0.12);">W&nbsp;rozwoju</div>
+                    <div style="margin-top:1rem; padding:0.2rem 0.6rem; display:inline-block; border-radius:6px; background:rgba(251,146,60,0.1); font-size:0.68rem; color:#ea580c; font-weight:500;">W&nbsp;rozwoju</div>
                 </div>
 
                 <div class="card reveal">
-                    <div class="card-icon" style="background:rgba(251,146,60,0.1); border-color:rgba(251,146,60,0.15);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div class="card-icon" style="background:rgba(251,146,60,0.1);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
                     <h3>AioP Protocol</h3>
                     <p>Minimalny, deterministyczny protokół do AI‑native commerce i wykonywalnych kontraktów.</p>
-                    <div style="margin-top:1rem; padding:0.2rem 0.6rem; display:inline-block; border-radius:6px; background:rgba(251,146,60,0.08); font-size:0.68rem; color:#fb923c; border:1px solid rgba(251,146,60,0.12);">Specyfikacja v0.1</div>
+                    <div style="margin-top:1rem; padding:0.2rem 0.6rem; display:inline-block; border-radius:6px; background:rgba(251,146,60,0.1); font-size:0.68rem; color:#ea580c; font-weight:500;">Specyfikacja v0.1</div>
                 </div>
             </div>
         </div>
@@ -238,6 +237,9 @@ import Base from '../layouts/Base.astro';
         }
         @media (max-width: 768px) {
             .card-grid { grid-template-columns: 1fr !important; }
+            section > .wrap > [style*="grid-template-columns:1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </Base>
