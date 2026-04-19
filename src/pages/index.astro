@@ -1,356 +1,243 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
+
 <Base>
     <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="wrap">
-            <div class="hero-badge">Polskie oprogramowanie biznesowe · od 1996</div>
-            <h1 class="hero-title">
-                Fakturowanie, księgowość, <span class="grad">rozwój</span>.
+    <section style="padding-top:10rem; padding-bottom:5rem; position:relative; min-height:85vh; display:flex; align-items:center;">
+        <!-- Floating orbs -->
+        <div style="position:absolute; top:15%; right:10%; width:300px; height:300px; background:radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%); border-radius:50%; filter:blur(60px); pointer-events:none;" aria-hidden="true"></div>
+        <div style="position:absolute; bottom:10%; left:5%; width:200px; height:200px; background:radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%); border-radius:50%; filter:blur(40px); pointer-events:none;" aria-hidden="true"></div>
+
+        <div class="wrap" style="position:relative; z-index:1;">
+            <div class="anim" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 1rem; border-radius:100px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.15); font-size:0.75rem; font-weight:600; color:var(--accent); letter-spacing:0.04em; margin-bottom:1.5rem;">
+                <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); animation: pulse 2s infinite;"></span>
+                Polskie oprogramowanie biznesowe · od 1996
+            </div>
+
+            <h1 class="anim anim-d1" style="font-size:clamp(2.2rem, 6vw, 4.2rem); font-weight:800; line-height:1.08; color:var(--text-bright); max-width:700px; margin-bottom:1.2rem;">
+                Fakturowanie,<br>księgowość,
+                <span style="background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">rozwój</span>.
             </h1>
-            <p class="hero-lead">
+
+            <p class="anim anim-d2" style="font-size:1.1rem; color:var(--text-dim); max-width:520px; line-height:1.7; margin-bottom:2rem;">
                 Tworzymy oprogramowanie dla polskich firm od prawie trzech dekad.
-                Faktura-NT, Sapio oraz własna platforma event-sourced pod operacje
-                przyszłości — wszystko pod jednym dachem.
+                Od prostej faktury po platformę event-sourced dla operacji przyszłości.
             </p>
-            <div class="hero-cta">
-                <a href="#produkty" class="btn btn-primary">Zobacz produkty</a>
+
+            <div class="anim anim-d3" style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                <a href="#produkty" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                    Nasze rozwiązania
+                </a>
                 <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="btn btn-ghost">
                     Jestem klientem — do BOK →
                 </a>
+            </div>
+
+            <!-- Trust indicators -->
+            <div class="anim anim-d4" style="display:flex; gap:2.5rem; margin-top:3.5rem; flex-wrap:wrap;">
+                <div style="text-align:left;">
+                    <div style="font-size:1.8rem; font-weight:800; color:var(--text-bright);">od 1996</div>
+                    <div style="font-size:0.72rem; color:var(--text-dim); letter-spacing:0.05em; text-transform:uppercase;">Na polskim rynku</div>
+                </div>
+                <div style="width:1px; background:var(--border); align-self:stretch;"></div>
+                <div style="text-align:left;">
+                    <div style="font-size:1.8rem; font-weight:800; color:var(--text-bright);">KSeF<span style="color:var(--accent);">✓</span></div>
+                    <div style="font-size:0.72rem; color:var(--text-dim); letter-spacing:0.05em; text-transform:uppercase;">Gotowy od dnia 1</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ===== PRODUKTY ===== -->
-    <section id="produkty" class="section">
+    <section id="produkty" style="padding-bottom:var(--section-gap);">
         <div class="wrap">
-            <div class="section-head">
-                <span class="eyebrow">Produkty</span>
-                <h2>Rozwiązania które sprzedajemy</h2>
-                <p class="section-lead">
-                    Dwie dojrzałe aplikacje z tysiącami aktywnych klientów.
-                    Wspierane, aktualizowane, gotowe na KSeF.
+            <div class="reveal">
+                <span class="section-label">Produkty</span>
+                <h2 class="section-title">Sprawdzone rozwiązania dla&nbsp;firm</h2>
+                <p class="section-desc">
+                    Dwie dojrzałe aplikacje z tysiącami aktywnych użytkowników.
+                    Wspierane, aktualizowane, w pełni gotowe na KSeF.
                 </p>
             </div>
 
-            <div class="cards cards-2">
-                <a href="https://faktura-nt.pl" target="_blank" rel="noopener" class="card">
-                    <div class="card-icon" aria-hidden="true">📊</div>
+            <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <a href="https://faktura-nt.pl" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
+                    </div>
                     <h3>Faktura-NT</h3>
-                    <p>
-                        Program do fakturowania dla firm i księgowych.
-                        Pełna obsługa KSeF, JPK, import/eksport, multi-stanowiskowy.
-                        Sprawdzony przez 30&nbsp;000+ polskich firm.
+                    <p style="margin-bottom:0.3rem;">
+                        Program do fakturowania dla firm i biur rachunkowych.
+                        Pełna obsługa <strong style="color:var(--text);">KSeF</strong>, JPK, import/eksport, praca wielostanowiskowa.
                     </p>
-                    <div class="card-cta">faktura-nt.pl →</div>
+                    <ul style="list-style:none; margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:0.4rem;">
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">KSeF 2.0</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">JPK</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">Multi-firma</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(167,139,250,0.08); font-size:0.7rem; color:var(--accent); border:1px solid rgba(167,139,250,0.12);">LAN/WAN</li>
+                    </ul>
+                    <div class="card-link">faktura-nt.pl <span>→</span></div>
                 </a>
 
-                <a href="https://sapio.pl" target="_blank" rel="noopener" class="card">
-                    <div class="card-icon" aria-hidden="true">💼</div>
+                <a href="https://sapio.pl" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
+                    <div class="card-icon" style="background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.15);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
                     <h3>Sapio</h3>
-                    <p>
-                        System księgowo-handlowy dla firm wielooddziałowych.
-                        Księgowość, magazyn, CRM, integracje z KSeF
-                        i bankami — wszystko w jednym miejscu.
+                    <p style="margin-bottom:0.3rem;">
+                        System ERP do zarządzania sprzedażą, magazynem i dokumentacją.
+                        Zaawansowana analityka, integracje API, skalowalny.
                     </p>
-                    <div class="card-cta">sapio.pl →</div>
+                    <ul style="list-style:none; margin:1rem 0 0; display:flex; flex-wrap:wrap; gap:0.4rem;">
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">ERP</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">Magazyn</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">API</li>
+                        <li style="padding:0.2rem 0.6rem; border-radius:6px; background:rgba(6,182,212,0.08); font-size:0.7rem; color:#06b6d4; border:1px solid rgba(6,182,212,0.12);">Raporty</li>
+                    </ul>
+                    <div class="card-link" style="color:#06b6d4;">sapio.pl <span>→</span></div>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- ===== SERWIS ===== -->
-    <section id="serwis" class="section section-alt">
+    <section id="serwis" style="border-top:1px solid var(--border);">
         <div class="wrap">
-            <div class="section-head">
-                <span class="eyebrow">Serwis</span>
-                <h2>Jeden kanał wsparcia</h2>
-                <p class="section-lead">
-                    Biuro Obsługi Klienta prowadzimy w jednym miejscu —
-                    bez przerzucania między systemami, bez czekania na infolinii.
+            <div class="reveal">
+                <span class="section-label" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.15); color:#10b981;">Serwis</span>
+                <h2 class="section-title">Wsparcie 24/7 z&nbsp;AI</h2>
+                <p class="section-desc">
+                    Biuro Obsługi Klienta z wbudowanym agentem AI.
+                    Diagnostyka, aktualizacje, zgłoszenia serwisowe — wszystko w&nbsp;jednym miejscu.
                 </p>
             </div>
 
-            <div class="service-hub">
-                <div class="service-hub-main">
-                    <h3>bok.faktura-nt.pl</h3>
-                    <p>
-                        Wszystko czego potrzebujesz jako nasz klient:
-                    </p>
-                    <ul class="service-features">
-                        <li>📋 <strong>Historia zmian</strong> — pełny changelog każdej wersji</li>
-                        <li>🤖 <strong>AI asystent</strong> — sprawdź czy Twój problem został już rozwiązany</li>
-                        <li>📝 <strong>Zgłoszenia serwisowe</strong> — z potwierdzeniem i śledzeniem</li>
-                        <li>📞 <strong>Infolinia</strong> — 22 38 956 38 (pon-pt, godziny biurowe)</li>
-                    </ul>
-                    <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
-                        <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="btn btn-primary">
-                            Przejdź do BOK
-                        </a>
-                        <a href="tel:+48223895638" class="btn btn-ghost">
-                            📞 22 38 956 38
-                        </a>
+            <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
+                    <div class="card-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
+                    <h3>Panel klienta BOK</h3>
+                    <p>Logowanie po NIP-ie, historia licencji, statusy produktów, dokumenty do pobrania.</p>
+                    <div class="card-link" style="color:#10b981;">bok.faktura-nt.pl →</div>
+                </a>
+
+                <a href="https://bok.faktura-nt.pl/aktualizacje" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
+                    <div class="card-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </div>
+                    <h3>AI Agent diagnostyczny</h3>
+                    <p>Automatyczna weryfikacja NIP, wersji programu i uprawnień. Odpowiedź w&nbsp;sekundach.</p>
+                    <div class="card-link" style="color:#10b981;">Sprawdź aktualizacje →</div>
+                </a>
+
+                <a href="https://assistant.faktura-nt.pl/zglos" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
+                    <div class="card-icon" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M7 7h.01M11 7h.01M15 7h.01M7 11h.01M11 11h.01M15 11h.01"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+                    </div>
+                    <h3>Zgłoszenia online</h3>
+                    <p>Formularz serwisowy ze śledzeniem statusu. Priorytety, załączniki, powiadomienia e-mail.</p>
+                    <div class="card-link" style="color:#10b981;">Zgłoś problem →</div>
+                </a>
+            </div>
+
+            <!-- Phone support callout -->
+            <div class="reveal" style="margin-top:1.5rem; padding:1.5rem 2rem; border-radius:14px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.1); display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                <div>
+                    <div style="font-weight:600; color:var(--text-bright); font-size:0.9rem;">Infolinia: 22 38 956 38</div>
+                    <div style="font-size:0.8rem; color:var(--text-dim);">Pon–Pt 8:00–16:00 · Pomoc telefoniczna dla klientów z aktywną licencją</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== BADANIA I ROZWÓJ ===== -->
-    <section id="badania" class="section">
+    <!-- ===== R&D ===== -->
+    <section id="rozwoj" style="border-top:1px solid var(--border);">
         <div class="wrap">
-            <div class="section-head">
-                <span class="eyebrow">Badania i rozwój</span>
-                <h2>Budujemy własną platformę</h2>
-                <p class="section-lead">
-                    Nie kupujemy cudzych narzędzi — tworzymy własny framework
-                    event-sourced dla aplikacji biznesowych przyszłości.
+            <div class="reveal">
+                <span class="section-label" style="background:rgba(251,146,60,0.08); border-color:rgba(251,146,60,0.15); color:#fb923c;">Badania i rozwój</span>
+                <h2 class="section-title">Budujemy przyszłość oprogramowania</h2>
+                <p class="section-desc">
+                    Inwestujemy w badania nad AI diagnostyką, weryfikowalnym event-sourcing
+                    i nowymi narzędziami dla polskiego biznesu.
                 </p>
             </div>
 
-            <div class="cards cards-3">
-                <div class="card card-rnd">
-                    <div class="card-icon" aria-hidden="true">🧩</div>
+            <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <a href="https://actproof.io" target="_blank" rel="noopener" class="card reveal" style="text-decoration:none;">
+                    <div class="card-icon" style="background:rgba(251,146,60,0.1); border-color:rgba(251,146,60,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
                     <h3>ActProof.io</h3>
-                    <p>
-                        Platforma event-sourced — fundament pod nowoczesne aplikacje
-                        biznesowe. Każda zmiana jako zdarzenie, weryfikowalna historia,
-                        deterministyczne rekonstrukcje stanu.
-                    </p>
-                    <div class="card-cta">actproof.io →</div>
-                </div>
+                    <p>Platforma do diagnostyki AI i algorytmu RBA (Retrograde Balancing Algorithm).</p>
+                    <div class="card-link" style="color:#fb923c;">actproof.io →</div>
+                </a>
 
-                <div class="card card-rnd">
-                    <div class="card-icon" aria-hidden="true">⚙️</div>
+                <div class="card reveal">
+                    <div class="card-icon" style="background:rgba(251,146,60,0.1); border-color:rgba(251,146,60,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
                     <h3>ActProof-OS</h3>
-                    <p>
-                        ERP dla operacji — zarządzanie czasem pracy i jakością,
-                        a w kolejnych fazach produkcja i monitoring urządzeń.
-                        Wszystkie warstwy na jednym event-sourced silniku.
-                    </p>
-                    <div class="card-cta">W rozwoju</div>
+                    <p>Event-sourced ERP z weryfikowalnym stanem. Zarządzanie procesami, kadrami i kontraktami.</p>
+                    <div style="margin-top:1rem; padding:0.2rem 0.6rem; display:inline-block; border-radius:6px; background:rgba(251,146,60,0.08); font-size:0.68rem; color:#fb923c; border:1px solid rgba(251,146,60,0.12);">W&nbsp;rozwoju</div>
                 </div>
 
-                <div class="card card-rnd">
-                    <div class="card-icon" aria-hidden="true">🔌</div>
-                    <h3>ACP</h3>
-                    <p>
-                        Agent Context Protocol — otwarty standard onboardingu
-                        agentów AI do projektów programistycznych.
-                        Open-source, udostępniamy społeczności.
-                    </p>
-                    <div class="card-cta">acp.actproof.io →</div>
+                <div class="card reveal">
+                    <div class="card-icon" style="background:rgba(251,146,60,0.1); border-color:rgba(251,146,60,0.15);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>AioP Protocol</h3>
+                    <p>Minimalny, deterministyczny protokół do AI‑native commerce i wykonywalnych kontraktów.</p>
+                    <div style="margin-top:1rem; padding:0.2rem 0.6rem; display:inline-block; border-radius:6px; background:rgba(251,146,60,0.08); font-size:0.68rem; color:#fb923c; border:1px solid rgba(251,146,60,0.12);">Specyfikacja v0.1</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== KONTAKT ===== -->
-    <section id="kontakt" class="section section-alt">
-        <div class="wrap">
-            <div class="section-head" style="text-align:center">
-                <span class="eyebrow">Kontakt</span>
-                <h2>Jak się z nami skontaktować</h2>
+    <section id="kontakt" style="border-top:1px solid var(--border);">
+        <div class="wrap" style="max-width:680px;">
+            <div class="reveal" style="text-align:center;">
+                <span class="section-label">Kontakt</span>
+                <h2 class="section-title" style="margin-bottom:1rem;">Porozmawiajmy o Twoich potrzebach</h2>
+                <p class="section-desc" style="margin:0 auto 2.5rem; text-align:center; max-width:480px;">
+                    Szukasz rozwiązania do fakturowania? Masz pytanie o KSeF?
+                    Odezwij się — odpowiadamy w ciągu 24h.
+                </p>
             </div>
 
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">🎧</div>
-                    <h4>Jesteś naszym klientem?</h4>
-                    <p>
-                        Skorzystaj z <a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener">Biura Obsługi</a>
-                        — tam znajdziesz AI asystenta, zgłoszenia i historię zmian.
-                    </p>
+            <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <div class="card" style="text-align:center; padding:2rem;">
+                    <div style="font-size:1.8rem; margin-bottom:0.6rem;">📧</div>
+                    <h3 style="font-size:0.95rem;">E-mail</h3>
+                    <a href="mailto:biuro@sokaris.pl" style="font-size:0.88rem;">biuro@sokaris.pl</a>
                 </div>
+                <div class="card" style="text-align:center; padding:2rem;">
+                    <div style="font-size:1.8rem; margin-bottom:0.6rem;">📞</div>
+                    <h3 style="font-size:0.95rem;">Telefon</h3>
+                    <a href="tel:+48223895638" style="font-size:0.88rem;">22 38 956 38</a>
+                </div>
+            </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <h4>Telefon</h4>
-                    <p>
-                        <a href="tel:+48223895638">22 38 956 38</a><br/>
-                        <small>pon-pt, godziny biurowe</small>
-                    </p>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <h4>E-mail</h4>
-                    <p>
-                        <a href="mailto:bok@sokaris.pl">bok@sokaris.pl</a><br/>
-                        <small>odpowiadamy w dzień roboczy</small>
-                    </p>
-                </div>
+            <div class="reveal" style="text-align:center; margin-top:1.5rem;">
+                <p style="font-size:0.8rem; color:var(--text-dim);">
+                    Sokaris Oprogramowanie · ul. Błękitna 3 · 46-300 Olesno<br>
+                    NIP: 576-105-16-34
+                </p>
             </div>
         </div>
     </section>
 
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        @media (max-width: 768px) {
+            .card-grid { grid-template-columns: 1fr !important; }
+        }
+    </style>
 </Base>
-
-<style>
-    /* ===== HERO ===== */
-    .hero {
-        padding: 72px 0 88px;
-        background: linear-gradient(180deg, #f8fafc 0%, #fafbfc 100%);
-        border-bottom: 1px solid var(--border);
-    }
-    .hero-badge {
-        display: inline-block;
-        padding: 6px 14px;
-        background: rgba(139, 92, 246, 0.08);
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 600;
-        color: #7c3aed;
-        letter-spacing: .3px;
-        margin-bottom: 20px;
-    }
-    .hero-title {
-        font-size: clamp(36px, 5vw, 56px);
-        font-weight: 800;
-        line-height: 1.05;
-        letter-spacing: -.02em;
-        max-width: 820px;
-        margin-bottom: 20px;
-    }
-    .grad {
-        background: var(--brand-gradient);
-        -webkit-background-clip: text; background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .hero-lead {
-        font-size: 18px;
-        color: var(--text-muted);
-        max-width: 680px;
-        margin-bottom: 32px;
-    }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    /* ===== BUTTONS ===== */
-    .btn {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 12px 22px;
-        border-radius: 8px;
-        font-weight: 600; font-size: 15px;
-        transition: all .15s ease;
-        cursor: pointer;
-    }
-    .btn-primary {
-        background: var(--brand-gradient);
-        color: #fff !important;
-        box-shadow: var(--shadow-md);
-    }
-    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
-    .btn-ghost {
-        background: #fff;
-        color: var(--text) !important;
-        border: 1px solid var(--border);
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent) !important; }
-
-    /* ===== SECTIONS ===== */
-    .section { padding: 80px 0; }
-    .section-alt { background: var(--bg-alt); }
-    .section-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
-    .eyebrow {
-        display: inline-block;
-        font-size: 12px; font-weight: 700;
-        text-transform: uppercase; letter-spacing: 1.5px;
-        color: #8b5cf6;
-        margin-bottom: 10px;
-    }
-    .section h2 {
-        font-size: clamp(28px, 4vw, 40px);
-        font-weight: 800;
-        letter-spacing: -.01em;
-        margin-bottom: 12px;
-    }
-    .section-lead {
-        font-size: 17px;
-        color: var(--text-muted);
-    }
-
-    /* ===== CARDS ===== */
-    .cards { display: grid; gap: 24px; }
-    .cards-2 { grid-template-columns: repeat(2, 1fr); }
-    .cards-3 { grid-template-columns: repeat(3, 1fr); }
-    @media (max-width: 900px) {
-        .cards-2, .cards-3 { grid-template-columns: 1fr; }
-    }
-
-    .card {
-        display: block;
-        background: var(--bg-alt);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 28px;
-        color: var(--text) !important;
-        transition: all .15s ease;
-    }
-    .card:hover {
-        border-color: #c7d2fe;
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
-    }
-    .card-icon { font-size: 32px; margin-bottom: 16px; }
-    .card h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-    .card p { color: var(--text-muted); font-size: 15px; }
-    .card-cta {
-        margin-top: 16px;
-        color: var(--accent);
-        font-weight: 600; font-size: 14px;
-    }
-    .card-rnd {
-        background: linear-gradient(180deg, #fafbff 0%, #ffffff 100%);
-    }
-
-    /* ===== SERVICE HUB ===== */
-    .service-hub-main {
-        max-width: 780px; margin: 0 auto;
-        background: var(--bg-alt);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 40px;
-        box-shadow: var(--shadow-sm);
-    }
-    .service-hub-main h3 {
-        font-size: 20px;
-        font-family: ui-monospace, "SF Mono", Consolas, monospace;
-        background: var(--brand-gradient);
-        -webkit-background-clip: text; background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 16px;
-    }
-    .service-features { list-style: none; margin: 20px 0 0; }
-    .service-features li {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 15px;
-    }
-    .service-features li:last-child { border: 0; }
-
-    /* ===== CONTACT ===== */
-    .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        max-width: 860px;
-        margin: 0 auto;
-    }
-    @media (max-width: 720px) {
-        .contact-grid { grid-template-columns: 1fr; }
-    }
-    .contact-item {
-        text-align: center;
-        background: var(--bg-alt);
-        padding: 32px 24px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-    }
-    .contact-icon { font-size: 28px; margin-bottom: 12px; }
-    .contact-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .contact-item p { font-size: 14px; color: var(--text-muted); }
-    .contact-item small { font-size: 12px; color: var(--text-soft); }
-</style>
