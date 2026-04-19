@@ -1,43 +1,71 @@
-# Astro Starter Kit: Minimal
+# sokaris.pl — Strona firmowa Sokaris Oprogramowanie
 
-```sh
-npm create astro@latest -- --template minimal
+Oficjalna strona firmy **Sokaris Oprogramowanie** — twórców programów **Faktura-NT** i **Sapio**.
+
+🌐 **https://sokaris.pl**
+
+## Stack technologiczny
+
+- **Astro** — statyczne SSG, zero JS na kliencie (poza scroll animations)
+- **LiteSpeed** — hosting Cyber_Folks
+- **Inter** — Google Fonts
+- **Umami** — self-hosted analytics (analytics.sokaris.pl)
+
+## Struktura
+
+```
+src/
+├── layouts/
+│   └── Base.astro          # Layout z header, footer, CSS
+├── pages/
+│   ├── index.astro         # Strona główna (Hero, Produkty, Serwis, R&D, Kontakt)
+│   └── polityka-prywatnosci.astro
+public/
+├── images/
+│   ├── sokaris-logo.png    # Logo firmowe
+│   ├── hero.png            # Hero section image
+│   ├── faktura-nt.png      # Mockup Faktura-NT
+│   ├── sapio.png           # Mockup Sapio ERP
+│   └── support.png         # Support team photo
+└── favicon.svg
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Sekcje strony
 
-## 🚀 Project Structure
+| Sekcja | Opis |
+|--------|------|
+| 🏠 Hero | "Fakturowanie, księgowość, rozwój" + CTA |
+| 📊 Produkty | Faktura-NT + Sapio z mockupami |
+| 🛡️ Serwis | BOK + AI Agent + Zgłoszenia + Infolinia 22 38 956 38 (Pon-Pt 9-15) |
+| 🔬 R&D | ActProof.io + ActProof-OS + AioP Protocol |
+| 📬 Kontakt | biuro@sokaris.pl + telefon |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Dane firmowe
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+- **Sokaris Oprogramowanie** · Paweł Guzik
+- ul. Błękitna 3, 46-300 Olesno
+- NIP: 576-105-16-34
+- Tel: 22 38 956 38
+- E-mail: biuro@sokaris.pl
+
+## Deploy
+
+```bash
+npm install
+npm run build        # → ./dist/
+# Upload dist/* do public_html na Cyber_Folks
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Rollback do WordPress
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+# Na Cyber_Folks SSH (port 222):
+cd ~/domains/sokaris.pl
+rm -rf public_html
+mv public_html_wp_backup public_html
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Historia
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **2026-04-19**: Migracja z WordPress na Astro, jasny theme, logo, zdjęcia
+- **1996–2025**: WordPress (backup w `public_html_wp_backup/`)
