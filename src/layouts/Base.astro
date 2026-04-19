@@ -1,0 +1,165 @@
+---
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = 'Sokaris — oprogramowanie dla polskich firm od 1996',
+    description = 'Sokaris tworzy oprogramowanie biznesowe: Faktura-NT, Sapio. Fakturowanie, księgowość, KSeF. Od 1996 roku.',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta name="theme-color" content="#8b5cf6" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <style is:global>
+        :root {
+            --bg: #fafbfc;
+            --bg-alt: #ffffff;
+            --text: #1c2733;
+            --text-muted: #6b7684;
+            --text-soft: #9ca3af;
+            --border: #e2e6ec;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+
+            /* SOKARIS brand gradient (ten sam co w BOK + /zglos + /serwis) */
+            --brand-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .08);
+            --shadow-md: 0 4px 6px rgba(15, 23, 42, .05), 0 10px 15px rgba(15, 23, 42, .06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; transition: color .15s ease; }
+        a:hover { color: var(--accent-hover); }
+
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            position: sticky; top: 0; z-index: 10;
+            background: rgba(250, 251, 252, 0.92);
+            backdrop-filter: saturate(180%) blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+        .site-header .wrap {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .brand {
+            font-size: 22px; font-weight: 800; letter-spacing: 2px;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .site-nav { display: flex; gap: 28px; align-items: center; }
+        .site-nav a { color: var(--text); font-size: 14px; font-weight: 500; }
+        .site-nav a:hover { color: var(--accent); }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            margin-top: 80px;
+            padding: 48px 0 40px;
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .site-footer .wrap {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .site-footer .brand { font-size: 24px; }
+        .site-footer h4 {
+            color: var(--text); font-size: 13px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px;
+        }
+        .site-footer ul { list-style: none; }
+        .site-footer li { margin-bottom: 8px; }
+        .site-footer .legal {
+            grid-column: 1 / -1;
+            margin-top: 32px; padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+            font-size: 12px; color: var(--text-soft);
+        }
+        @media (max-width: 720px) {
+            .site-footer .wrap { grid-template-columns: 1fr; }
+            .site-header .site-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrap">
+            <a href="/" class="brand">SOKARIS</a>
+            <nav class="site-nav">
+                <a href="#produkty">Produkty</a>
+                <a href="#serwis">Serwis</a>
+                <a href="#badania">Badania</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <slot />
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div>
+                <div class="brand">SOKARIS</div>
+                <p style="margin-top:10px; max-width:360px">
+                    Polskie oprogramowanie biznesowe od 1996 roku.
+                    Fakturowanie, księgowość, KSeF, systemy ERP.
+                </p>
+            </div>
+            <div>
+                <h4>Produkty</h4>
+                <ul>
+                    <li><a href="https://faktura-nt.pl" target="_blank" rel="noopener">Faktura-NT</a></li>
+                    <li><a href="https://sapio.pl" target="_blank" rel="noopener">Sapio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Wsparcie</h4>
+                <ul>
+                    <li><a href="https://bok.faktura-nt.pl" target="_blank" rel="noopener">BOK — Biuro Obsługi</a></li>
+                    <li><a href="https://bok.faktura-nt.pl/aktualizacje" target="_blank" rel="noopener">Aktualizacje</a></li>
+                    <li><a href="tel:+48223895638">22 38 956 38</a></li>
+                </ul>
+            </div>
+            <div class="legal">
+                <div>© 1996–2026 SOKARIS. Wszystkie prawa zastrzeżone.</div>
+                <div><a href="/polityka-prywatnosci">Polityka prywatności</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
